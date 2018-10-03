@@ -18,9 +18,6 @@ class DataGenerator(keras.utils.Sequence):
 
     def __len__(self):
         'Denotes the number of batches per epoch'
-        print('--len self id :', len(self.list_IDs) )
-        print('--self.batch_size :', self.batch_size )
-        print('---len : ', int(np.floor(len(self.list_IDs) / self.batch_size)))
         return int(np.floor(len(self.list_IDs) / self.batch_size))
 
     def __getitem__(self, index):
@@ -52,13 +49,6 @@ class DataGenerator(keras.utils.Sequence):
         for i, ID in enumerate(list_IDs_temp):
             # Store sample
             #X[i,] = np.load('data/' + ID + '.npy')
-            #print('===========')
-            #print('---batch_size : ', self.batch_size)
-            #print('---ID : ', ID)
-            #print('---i : ', i)
-            #print('---ID : ', self.data_arr[ID].shape)
-            #print('===========')
-
             X[i,] = self.data_arr[ID]
 
             # Store class
